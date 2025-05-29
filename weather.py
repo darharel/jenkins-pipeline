@@ -33,7 +33,7 @@ def send_to_dynamodb():
 
     dynamodb = boto3.client('dynamodb', region_name='eu-central-1')
 
-    table = dynamodb.table('skydb')
+    table = dynamodb.Table('skydb')
     response = table.put_item(
         Item={
             'City': "Tel Aviv",
