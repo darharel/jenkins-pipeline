@@ -1,0 +1,31 @@
+Weather Forecast Web App
+This is a Python Flask web app that shows a 7-day weather forecast for any city. It uses the Open Meteo API for weather data, AWS S3 to download a sky image, and AWS DynamoDB to store a sample record.
+
+Main Features:
+Enter a city and get a 7-day forecast with temperature, humidity, and weekday display.
+Button to download a sky image from S3.
+Button to send a sample record to DynamoDB.
+Simple HTML frontend using Jinja2 templating.
+Tested with a basic unittest script.
+Dockerized and production-ready using Gunicorn.
+
+CI/CD Pipeline:
+Jenkinsfile builds the Docker image, runs the container, executes tests, pushes the image to DockerHub, and deploys it to an EC2 instance over SSH.
+
+Project Files:
+weather.py – Main Flask application.
+tests.py – Unit test to check the homepage is reachable.
+index.html – The frontend template (under templates/).
+Dockerfile – Prepares the app image using python:3 and installs Flask, Gunicorn, boto3, and requests.
+Jenkinsfile – Handles the pipeline logic.
+
+How to Run Locally:
+Build the image: docker build -t weather-app .
+Run the container: docker run -d -p 5000:8000 weather-app
+Visit http://localhost:5000 to use the app.
+
+Run tests: python3 tests.py
+
+Dependencies: Python 3, Flask, requests, boto3, Gunicorn, Docker
+
+Author: Dar Harel
